@@ -46,7 +46,6 @@ function App() {
             whileHover={{
               scale: 1.05,
               boxShadow: '0 0 10px #0dcaf0, 0 0 20px #0dcaf0',
-              color: '#0dcaf0', // Keep font color same on hover
             }}
             whileTap={{ scale: 0.95 }}
             style={{
@@ -56,8 +55,6 @@ function App() {
               borderRadius: '8px',
               padding: '10px 24px',
               transition: 'all 0.3s ease',
-              textDecoration: 'none',
-              display: 'inline-block',
             }}
           >
             See My Work
@@ -65,6 +62,7 @@ function App() {
         </motion.div>
       </header>
 
+      {/* Projects Section */}
       <motion.section
         id="projects"
         className="py-5 bg-light"
@@ -76,32 +74,41 @@ function App() {
       >
         <div className="container">
           <h2 className="mb-5 text-center fw-bold">Projects</h2>
-          <div className="row g-4">
-            {[1, 2, 3].map((project) => (
+          <div className="row">
+            {[1, 2, 3].map((project, index) => (
               <motion.div
                 key={project}
                 className="col-md-4"
                 whileHover={{
                   y: -10,
-                  boxShadow: '0 8px 15px rgba(13,110,253,0.3)',
-                  transition: { duration: 0.3, ease: 'easeOut' },
+                  boxShadow: '0 10px 25px rgba(13, 202, 240, 0.3)',
                 }}
-                style={{ borderRadius: '12px', overflow: 'hidden', cursor: 'pointer' }}
-                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                style={{
+                  borderRadius: '12px',
+                  overflow: 'hidden',
+                  backgroundColor: 'white',
+                  marginBottom: '30px', // ✅ This adds the desired vertical spacing
+                }}
               >
-                <div className="card h-100 shadow-sm border-0 rounded" style={{ borderRadius: '12px' }}>
+                <div className="h-100">
                   <img
                     src={`https://picsum.photos/seed/project${project}/400/200`}
-                    className="card-img-top rounded-top"
                     alt={`Project ${project}`}
+                    style={{
+                      width: '100%',
+                      height: '200px',
+                      objectFit: 'cover',
+                      borderTopLeftRadius: '12px',
+                      borderTopRightRadius: '12px',
+                    }}
                   />
-                  <div className="card-body">
-                    <h5 className="card-title">Project {project}</h5>
-                    <p className="card-text">
-                      This is a cool project description showcasing skills and
-                      technologies.
+                  <div className="p-3">
+                    <h5 className="fw-bold">Project {project}</h5>
+                    <p style={{ fontSize: '0.95rem' }}>
+                      A cool project showcasing your skills and creativity.
                     </p>
-                    <a href="#" className="btn btn-outline-info">
+                    <a href="#" className="btn btn-outline-info btn-sm">
                       View Details
                     </a>
                   </div>
@@ -112,6 +119,7 @@ function App() {
         </div>
       </motion.section>
 
+      {/* About Section */}
       <motion.section
         id="about"
         className="py-5 bg-secondary text-white text-center"
@@ -130,6 +138,7 @@ function App() {
         </div>
       </motion.section>
 
+      {/* Contact Section */}
       <motion.section
         id="contact"
         className="py-5 text-center"
@@ -142,13 +151,17 @@ function App() {
           <h2 className="fw-bold mb-3">Contact</h2>
           <p className="lead">
             Feel free to reach out via email at{' '}
-            <a href="mailto:damian@example.com" className="text-info">
-              damian@example.com
+            <a
+              href="mailto:damianopeplinki+contact@gmail.com"
+              className="text-info"
+            >
+              damianopeplinki+contact@gmail.com
             </a>
           </p>
         </div>
       </motion.section>
 
+      {/* Footer */}
       <footer className="bg-dark text-white text-center py-3">
         &copy; {new Date().getFullYear()} Damian Portfolio
       </footer>
