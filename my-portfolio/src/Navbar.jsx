@@ -20,6 +20,7 @@ const Navbar = () => {
     fontSize: '1.8rem',
     fontWeight: 'bold',
     color: '#0dcaf0',
+    textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
     transition: 'text-shadow 0.3s ease-in-out',
   };
 
@@ -29,6 +30,7 @@ const Navbar = () => {
 
   const glowLinkStyle = {
     color: 'white',
+    textShadow: '2px 2px 8px rgba(0,0,0,0.7)',
     transition: 'text-shadow 0.3s ease-in-out',
   };
 
@@ -36,7 +38,7 @@ const Navbar = () => {
     textShadow: '0 0 6px #0dcaf0',
   };
 
-  const [hovered, setHovered] = React.useState({
+  const [hovered, setHovered] = useState({
     brand: false,
     home: false,
     projects: false,
@@ -63,10 +65,10 @@ const Navbar = () => {
         className="navbar fixed-top navbar-expand-lg shadow-sm"
         style={{
           backgroundColor: scrolled ? 'rgba(0, 0, 0, 0.95)' : 'transparent',
-          transition: 'background-color 0.6s ease', // faster transition
+          transition: 'background-color 0.6s ease',
           padding: '0.75rem 1.5rem',
           zIndex: 1030,
-          borderBottom: '0 !important', // important override
+          borderBottom: '0 !important',
           boxShadow: scrolled ? '0 2px 10px rgba(0,0,0,0.8)' : 'none',
         }}
       >

@@ -12,19 +12,45 @@ const projects = [
     id: 1,
     title: 'Portfolio Website',
     description: 'A personal portfolio built with React and Bootstrap.',
-    imageUrl: 'https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=400&q=80',
+    imageUrl:
+      'https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=400&q=80',
   },
   {
     id: 2,
     title: 'E-commerce Store',
     description: 'Online store built with React, Redux, and Stripe.',
-    imageUrl: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80',
+    imageUrl:
+      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80',
   },
   {
     id: 3,
     title: 'Blog Platform',
     description: 'A full-stack blog platform with user authentication.',
-    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80',
+    imageUrl:
+      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80',
+  },
+];
+
+const aboutTimeline = [
+  {
+    year: '2019',
+    title: 'First Steps in Web Dev',
+    full: 'Dove into frontend development through online tutorials. Built small projects to learn the basics and gained confidence with layout and styling.',
+  },
+  {
+    year: '2021',
+    title: 'React Changed Everything',
+    full: 'Learned React, hooks, component trees, and routing. Built complex UIs and learned to manage state effectively. React became my daily tool.',
+  },
+  {
+    year: '2022',
+    title: 'Freelancing Experience',
+    full: 'Worked on portfolio sites, business dashboards, and landing pages. Learned project structure, deadlines, and client collaboration.',
+  },
+  {
+    year: '2023–Now',
+    title: 'Expanding My Stack',
+    full: 'I’m constantly learning — deploying with Netlify/Vercel, using animations with Framer Motion, and building full-stack apps with APIs.',
   },
 ];
 
@@ -33,6 +59,7 @@ function App() {
     <>
       <Navbar />
 
+      {/* Hero Section */}
       <header
         id="home"
         className="text-center text-white d-flex align-items-center justify-content-center"
@@ -49,16 +76,10 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1
-            className="display-4 fw-bold mb-3"
-            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
-          >
+          <h1 className="display-4 fw-bold mb-3" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
             Hello, I'm <span className="text-info">Damian</span>
           </h1>
-          <p
-            className="lead mb-4"
-            style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.6)' }}
-          >
+          <p className="lead mb-4" style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.6)' }}>
             React Developer & Web Enthusiast
           </p>
           <motion.a
@@ -95,16 +116,7 @@ function App() {
       >
         <div className="container">
           <h2 className="mb-5 text-center fw-bold">Projects</h2>
-
-          {/* Custom flex container with gap */}
-          <div
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '1rem',
-              justifyContent: 'center',
-            }}
-          >
+          <div className="d-flex flex-wrap gap-3 justify-content-center">
             {projects.map(({ id, title, description, imageUrl }) => (
               <motion.div
                 key={id}
@@ -114,11 +126,11 @@ function App() {
                 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20 }}
                 style={{
-                  flex: '1 1 calc(33.33% - 1rem)', // 3 per row minus gap
+                  flex: '1 1 calc(33.33% - 1rem)',
                   borderRadius: '12px',
                   overflow: 'hidden',
                   backgroundColor: 'white',
-                  minWidth: '280px', // prevent too narrow on small screens
+                  minWidth: '280px',
                   maxWidth: '400px',
                   boxSizing: 'border-box',
                 }}
@@ -149,24 +161,106 @@ function App() {
         </div>
       </motion.section>
 
-      {/* About Section */}
+      {/* About Me Timeline Section */}
       <motion.section
         id="about"
-        className="py-5 bg-secondary text-white text-center"
+        className="py-5 bg-secondary text-white position-relative"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={sectionVariants}
       >
-        <div className="container">
-          <h2 className="fw-bold mb-3">About Me</h2>
-          <p className="lead mx-auto" style={{ maxWidth: '700px' }}>
-            I’m Damian, a passionate React developer building amazing web
-            experiences. I love crafting clean, responsive, and interactive
-            user interfaces that delight users.
-          </p>
+        <div className="container position-relative">
+          <h2 className="fw-bold mb-5 text-center position-relative z-2 bg-secondary px-3 d-inline-block">
+            About Me
+          </h2>
+
+          {aboutTimeline.map((item, idx) => {
+            const isLeft = idx % 2 === 0;
+            return (
+              <motion.div
+                key={idx}
+                className="row mb-5 align-items-start position-relative"
+                initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: idx * 0.1 }}
+              >
+                {isLeft ? (
+                  <>
+                    <div className="col-md-5 text-md-end pe-md-5">
+                      <div className="p-4 bg-dark rounded shadow-sm position-relative z-2">
+                        <h5 className="text-info fw-bold mb-2">
+                          {item.year} — {item.title}
+                        </h5>
+                        <p className="mb-0">{item.full}</p>
+                      </div>
+                    </div>
+                    <div className="col-md-2 d-flex justify-content-center position-relative">
+                      <span
+                        className="bg-info rounded-circle position-absolute"
+                        style={{
+                          width: '16px',
+                          height: '16px',
+                          top: '20px',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          boxShadow: '0 0 10px #0dcaf0',
+                          zIndex: 3,
+                        }}
+                      />
+                    </div>
+                    <div className="col-md-5"></div>
+                  </>
+                ) : (
+                  <>
+                    <div className="col-md-5"></div>
+                    <div className="col-md-2 d-flex justify-content-center position-relative">
+                      <span
+                        className="bg-info rounded-circle position-absolute"
+                        style={{
+                          width: '16px',
+                          height: '16px',
+                          top: '20px',
+                          left: '50%',
+                          transform: 'translateX(-50%)',
+                          boxShadow: '0 0 10px #0dcaf0',
+                          zIndex: 3,
+                        }}
+                      />
+                    </div>
+                    <div className="col-md-5 ps-md-5">
+                      <div className="p-4 bg-dark rounded shadow-sm position-relative z-2">
+                        <h5 className="text-info fw-bold mb-2">
+                          {item.year} — {item.title}
+                        </h5>
+                        <p className="mb-0">{item.full}</p>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </motion.div>
+            );
+          })}
         </div>
       </motion.section>
+
+      {/* Tech Stack Section (Below About Me, Above Contact) */}
+      <section className="py-4 bg-secondary text-center">
+        <code
+          style={{
+            display: 'inline-block',
+            background: '#1e1e2f',
+            color: '#0dcaf0',
+            padding: '12px 24px',
+            borderRadius: '8px',
+            fontSize: '1.1rem',
+            fontFamily: 'monospace',
+            boxShadow: '0 0 15px rgba(13, 202, 240, 0.4)',
+          }}
+        >
+          {'{ React, JavaScript, Tailwind, Bootstrap, Git, Framer Motion }'}
+        </code>
+      </section>
 
       {/* Contact Section */}
       <motion.section
@@ -190,7 +284,7 @@ function App() {
 
       {/* Footer */}
       <footer className="bg-dark text-white text-center py-3">
-        &copy; {new Date().getFullYear()} Damian Portfolio
+        &copy; {new Date().getFullYear()} Damian Pepliński. All rights reserved.
       </footer>
     </>
   );
