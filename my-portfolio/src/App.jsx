@@ -1,6 +1,18 @@
 import React from 'react';
 import Navbar from './Navbar';
 import { motion } from 'framer-motion';
+import {
+  FaReact,
+  FaJsSquare,
+  FaGitAlt,
+  FaBootstrap,
+  FaPhp,
+  FaHtml5,
+  FaNodeJs,
+  FaLaravel,
+  FaFigma,
+} from 'react-icons/fa';
+import { SiTailwindcss, SiFramer, SiTypescript, SiPwa } from 'react-icons/si';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -35,23 +47,43 @@ const aboutTimeline = [
   {
     year: '2019',
     title: 'First Steps in Web Dev',
-    full: 'Dove into frontend development through online tutorials. Built small projects to learn the basics and gained confidence with layout and styling.',
+    full:
+      'Dove into frontend development through online tutorials. Built small projects to learn the basics and gained confidence with layout and styling.',
   },
   {
     year: '2021',
     title: 'React Changed Everything',
-    full: 'Learned React, hooks, component trees, and routing. Built complex UIs and learned to manage state effectively. React became my daily tool.',
+    full:
+      'Learned React, hooks, component trees, and routing. Built complex UIs and learned to manage state effectively. React became my daily tool.',
   },
   {
     year: '2022',
     title: 'Freelancing Experience',
-    full: 'Worked on portfolio sites, business dashboards, and landing pages. Learned project structure, deadlines, and client collaboration.',
+    full:
+      'Worked on portfolio sites, business dashboards, and landing pages. Learned project structure, deadlines, and client collaboration.',
   },
   {
     year: '2023–Now',
     title: 'Expanding My Stack',
-    full: 'I’m constantly learning — deploying with Netlify/Vercel, using animations with Framer Motion, and building full-stack apps with APIs.',
+    full:
+      'I’m constantly learning — deploying with Netlify/Vercel, using animations with Framer Motion, and building full-stack apps with APIs.',
   },
+];
+
+const skills = [
+  { name: 'JavaScript', icon: <FaJsSquare size={28} color="#f0db4f" /> },
+  { name: 'React', icon: <FaReact size={28} color="#61DBFB" /> },
+  { name: 'Tailwind', icon: <SiTailwindcss size={28} color="#38B2AC" /> },
+  { name: 'Framer', icon: <SiFramer size={28} color="#0055FF" /> },
+  { name: 'Git', icon: <FaGitAlt size={28} color="#F1502F" /> },
+  { name: 'Bootstrap', icon: <FaBootstrap size={28} color="#7952b3" /> },
+  { name: 'PHP', icon: <FaPhp size={28} color="#8892BE" /> },
+  { name: 'HTML5', icon: <FaHtml5 size={28} color="#e34c26" /> },
+  { name: 'Node.js', icon: <FaNodeJs size={28} color="#68A063" /> },
+  { name: 'Laravel', icon: <FaLaravel size={28} color="#FF2D20" /> },
+  { name: 'PWA', icon: <SiPwa size={28} color="#5A0FC8" /> },
+  { name: 'TypeScript', icon: <SiTypescript size={28} color="#007ACC" /> },
+  { name: 'Figma', icon: <FaFigma size={28} color="#F24E1E" /> },
 ];
 
 function App() {
@@ -76,31 +108,26 @@ function App() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1 className="display-4 fw-bold mb-3" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
-            Hello, I'm <span className="text-info">Damian</span>
+          <h1
+            className="display-4 fw-bold mb-3"
+            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
+          >
+            Hello, I'm <span className="text-info glow">Damian</span>
           </h1>
-          <p className="lead mb-4" style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.6)' }}>
-            React Developer & Web Enthusiast
-          </p>
-          <motion.a
-            href="#projects"
-            className="btn btn-lg fw-semibold"
-            whileHover={{
-              scale: 1.05,
-              boxShadow: '0 0 10px #0dcaf0, 0 0 20px #0dcaf0',
-            }}
-            whileTap={{ scale: 0.95 }}
+
+          {/* Transparent glow button with border */}
+          <button
+            className="btn btn-outline-info mt-3 glow-button"
             style={{
-              color: '#0dcaf0',
-              border: '1px solid #0dcaf0',
               backgroundColor: 'transparent',
-              borderRadius: '8px',
-              padding: '10px 24px',
-              transition: 'all 0.3s ease',
+              borderWidth: '2px',
+              color: '#0dcaf0',
+              cursor: 'pointer',
+              transition: 'box-shadow 0.3s ease',
             }}
           >
-            See My Work
-          </motion.a>
+            Contact Me
+          </button>
         </motion.div>
       </header>
 
@@ -108,7 +135,6 @@ function App() {
       <motion.section
         id="projects"
         className="py-5 bg-light"
-        style={{ scrollMarginTop: '100px' }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -116,156 +142,114 @@ function App() {
       >
         <div className="container">
           <h2 className="mb-5 text-center fw-bold">Projects</h2>
-          <div className="d-flex flex-wrap gap-3 justify-content-center">
+          <div className="row justify-content-center">
             {projects.map(({ id, title, description, imageUrl }) => (
-              <motion.div
-                key={id}
-                whileHover={{
-                  y: -10,
-                  boxShadow: '0 10px 25px rgba(13, 202, 240, 0.3)',
-                }}
-                transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                style={{
-                  flex: '1 1 calc(33.33% - 1rem)',
-                  borderRadius: '12px',
-                  overflow: 'hidden',
-                  backgroundColor: 'white',
-                  minWidth: '280px',
-                  maxWidth: '400px',
-                  boxSizing: 'border-box',
-                }}
-              >
-                <div className="h-100">
+              <div key={id} className="col-md-4 mb-4">
+                <motion.div
+                  whileHover={{
+                    y: -10,
+                    boxShadow: '0 10px 25px rgba(13, 202, 240, 0.3)',
+                  }}
+                  transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                  className="bg-white rounded shadow-sm h-100"
+                >
                   <img
                     src={imageUrl}
                     alt={title}
-                    style={{
-                      width: '100%',
-                      height: '200px',
-                      objectFit: 'cover',
-                      borderTopLeftRadius: '12px',
-                      borderTopRightRadius: '12px',
-                    }}
+                    className="img-fluid rounded-top"
+                    style={{ height: '200px', objectFit: 'cover' }}
                   />
                   <div className="p-3">
-                    <h5 className="fw-bold">{title}</h5>
-                    <p style={{ fontSize: '0.95rem' }}>{description}</p>
-                    <a href="#" className="btn btn-outline-info btn-sm">
-                      View Details
-                    </a>
+                    <h5>{title}</h5>
+                    <p>{description}</p>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </motion.section>
 
-      {/* About Me Timeline Section */}
+      {/* About Me Section */}
       <motion.section
         id="about"
-        className="py-5 bg-secondary text-white position-relative"
+        className="py-5 bg-secondary text-white"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={sectionVariants}
       >
-        <div className="container position-relative">
-          <h2 className="fw-bold mb-5 text-center position-relative z-2 bg-secondary px-3 d-inline-block">
-            About Me
-          </h2>
-
-          {aboutTimeline.map((item, idx) => {
-            const isLeft = idx % 2 === 0;
-            return (
-              <motion.div
-                key={idx}
-                className="row mb-5 align-items-start position-relative"
-                initial={{ opacity: 0, x: isLeft ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: idx * 0.1 }}
+        <div className="container">
+          <h2 className="fw-bold mb-5 text-center">About Me</h2>
+          {aboutTimeline.map((item, idx) => (
+            <motion.div
+              key={idx}
+              className="row mb-5 justify-content-center text-center align-items-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: idx * 0.1 }}
+            >
+              <div
+                className="col-2 d-flex justify-content-center"
+                style={{ position: 'relative' }}
               >
-                {isLeft ? (
-                  <>
-                    <div className="col-md-5 text-md-end pe-md-5">
-                      <div className="p-4 bg-dark rounded shadow-sm position-relative z-2">
-                        <h5 className="text-info fw-bold mb-2">
-                          {item.year} — {item.title}
-                        </h5>
-                        <p className="mb-0">{item.full}</p>
-                      </div>
-                    </div>
-                    <div className="col-md-2 d-flex justify-content-center position-relative">
-                      <span
-                        className="bg-info rounded-circle position-absolute"
-                        style={{
-                          width: '16px',
-                          height: '16px',
-                          top: '20px',
-                          left: '50%',
-                          transform: 'translateX(-50%)',
-                          boxShadow: '0 0 10px #0dcaf0',
-                          zIndex: 3,
-                        }}
-                      />
-                    </div>
-                    <div className="col-md-5"></div>
-                  </>
-                ) : (
-                  <>
-                    <div className="col-md-5"></div>
-                    <div className="col-md-2 d-flex justify-content-center position-relative">
-                      <span
-                        className="bg-info rounded-circle position-absolute"
-                        style={{
-                          width: '16px',
-                          height: '16px',
-                          top: '20px',
-                          left: '50%',
-                          transform: 'translateX(-50%)',
-                          boxShadow: '0 0 10px #0dcaf0',
-                          zIndex: 3,
-                        }}
-                      />
-                    </div>
-                    <div className="col-md-5 ps-md-5">
-                      <div className="p-4 bg-dark rounded shadow-sm position-relative z-2">
-                        <h5 className="text-info fw-bold mb-2">
-                          {item.year} — {item.title}
-                        </h5>
-                        <p className="mb-0">{item.full}</p>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </motion.div>
-            );
-          })}
+                <span
+                  className="bg-info rounded-circle"
+                  style={{
+                    width: '16px',
+                    height: '16px',
+                    boxShadow: '0 0 10px #0dcaf0',
+                    position: 'absolute',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                  }}
+                />
+              </div>
+              <div className="col-md-8 col-sm-10">
+                <div className="bg-dark p-4 rounded shadow">
+                  <h5 className="text-info fw-bold mb-2">
+                    {item.year} — {item.title}
+                  </h5>
+                  <p>{item.full}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </motion.section>
 
-      {/* Tech Stack Section (Below About Me, Above Contact) */}
-      <section className="py-4 bg-secondary text-center">
-        <code
-          style={{
-            display: 'inline-block',
-            background: '#1e1e2f',
-            color: '#0dcaf0',
-            padding: '12px 24px',
-            borderRadius: '8px',
-            fontSize: '1.1rem',
-            fontFamily: 'monospace',
-            boxShadow: '0 0 15px rgba(13, 202, 240, 0.4)',
-          }}
-        >
-          {'{ React, JavaScript, Tailwind, Bootstrap, Git, Framer Motion }'}
-        </code>
-      </section>
+      {/* Skills Section */}
+      <motion.section
+        className="py-5 bg-dark text-white"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <div className="container">
+          <h2 className="fw-bold text-center mb-4">Tech Stack</h2>
+          <div className="row justify-content-center">
+            {skills.map(({ name, icon }, idx) => (
+              <div key={idx} className="col-6 col-md-2 mb-4 text-center">
+                <div className="bg-secondary p-3 rounded">
+                  {icon}
+                  <p className="mt-2 mb-0">{name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
 
       {/* Contact Section */}
       <motion.section
         id="contact"
-        className="py-5 text-center"
+        className="py-4 text-center text-white"
+        style={{
+          background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
+          minHeight: '30vh',
+        }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -275,7 +259,15 @@ function App() {
           <h2 className="fw-bold mb-3">Contact</h2>
           <p className="lead">
             Feel free to reach out via email at{' '}
-            <a href="mailto:damianopeplinki+contact@gmail.com" className="text-info">
+            <a
+              href="mailto:damianopeplinki+contact@gmail.com"
+              className="text-info glow"
+              style={{
+                borderBottom: '1px solid #0dcaf0',
+                cursor: 'pointer',
+                textDecoration: 'none',
+              }}
+            >
               damianopeplinki+contact@gmail.com
             </a>
           </p>
@@ -286,6 +278,25 @@ function App() {
       <footer className="bg-dark text-white text-center py-3">
         &copy; {new Date().getFullYear()} Damian Pepliński. All rights reserved.
       </footer>
+
+      {/* Custom Styles */}
+      <style jsx>{`
+        .glow {
+          transition: text-shadow 0.3s ease, box-shadow 0.3s ease;
+        }
+        .glow:hover {
+          text-shadow: 0 0 10px #0dcaf0, 0 0 20px #0dcaf0, 0 0 30px #0dcaf0;
+          box-shadow: 0 0 10px #0dcaf0, 0 0 20px #0dcaf0, 0 0 30px #0dcaf0;
+        }
+        .glow-button {
+          transition: box-shadow 0.3s ease;
+        }
+        .glow-button:hover {
+          box-shadow: 0 0 12px 3px #0dcaf0;
+          border-color: #0dcaf0;
+          color: #0dcaf0;
+        }
+      `}</style>
     </>
   );
 }
