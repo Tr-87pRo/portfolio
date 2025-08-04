@@ -1,82 +1,74 @@
 import React from 'react';
+import Navbar from './Navbar';
+import { motion } from 'framer-motion';
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+};
 
 function App() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow">
-        <div className="container">
-          <a className="navbar-brand fw-bold" href="#">Damian Portfolio</a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon" />
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link active" href="#home" aria-current="page">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#projects">Projects</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#about">About</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#contact">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
       <header
         id="home"
         className="text-center text-white d-flex align-items-center justify-content-center"
         style={{
           minHeight: '80vh',
+          paddingTop: '56px',
           background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`
+                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
         }}
       >
-        <div className="container">
-          <h1 className="display-4 fw-bold mb-3" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
+        <motion.div
+          className="container"
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h1
+            className="display-4 fw-bold mb-3"
+            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
+          >
             Hello, I'm <span className="text-info">Damian</span>
           </h1>
-          <p className="lead mb-4" style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.6)' }}>
+          <p
+            className="lead mb-4"
+            style={{ textShadow: '1px 1px 5px rgba(0,0,0,0.6)' }}
+          >
             React Developer & Web Enthusiast
           </p>
-          <a
+          <motion.a
             href="#projects"
             className="btn btn-info btn-lg shadow-lg"
-            style={{ transition: 'transform 0.3s' }}
-            onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
-            onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
+            whileHover={{ scale: 1.05, boxShadow: '0 0 8px rgb(13,110,253)' }}
+            whileTap={{ scale: 0.95 }}
           >
             See My Work
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </header>
 
-      <section id="projects" className="py-5 bg-light">
+      <motion.section
+        id="projects"
+        className="py-5 bg-light"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <div className="container">
           <h2 className="mb-5 text-center fw-bold">Projects</h2>
           <div className="row g-4">
             {[1, 2, 3].map((project) => (
-              <div key={project} className="col-md-4">
-                <div
-                  className="card h-100 shadow-sm border-0 rounded"
-                  style={{ transition: 'transform 0.3s', cursor: 'pointer' }}
-                  onMouseEnter={e => (e.currentTarget.style.transform = 'translateY(-10px)')}
-                  onMouseLeave={e => (e.currentTarget.style.transform = 'translateY(0)')}
-                >
+              <motion.div
+                key={project}
+                className="col-md-4"
+                whileHover={{ y: -10, boxShadow: '0 10px 20px rgba(0,0,0,0.15)' }}
+              >
+                <div className="card h-100 shadow-sm border-0 rounded">
                   <img
                     src={`https://picsum.photos/seed/project${project}/400/200`}
                     className="card-img-top rounded-top"
@@ -85,30 +77,46 @@ function App() {
                   <div className="card-body">
                     <h5 className="card-title">Project {project}</h5>
                     <p className="card-text">
-                      This is a cool project description showcasing skills and technologies.
+                      This is a cool project description showcasing skills and
+                      technologies.
                     </p>
                     <a href="#" className="btn btn-outline-info">
                       View Details
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="about" className="py-5 bg-secondary text-white text-center">
+      <motion.section
+        id="about"
+        className="py-5 bg-secondary text-white text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <div className="container">
           <h2 className="fw-bold mb-3">About Me</h2>
           <p className="lead mx-auto" style={{ maxWidth: '700px' }}>
-            I’m Damian, a passionate React developer building amazing web experiences. I love crafting clean,
-            responsive, and interactive user interfaces that delight users.
+            I’m Damian, a passionate React developer building amazing web
+            experiences. I love crafting clean, responsive, and interactive
+            user interfaces that delight users.
           </p>
         </div>
-      </section>
+      </motion.section>
 
-      <section id="contact" className="py-5 text-center">
+      <motion.section
+        id="contact"
+        className="py-5 text-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
         <div className="container">
           <h2 className="fw-bold mb-3">Contact</h2>
           <p className="lead">
@@ -118,7 +126,7 @@ function App() {
             </a>
           </p>
         </div>
-      </section>
+      </motion.section>
 
       <footer className="bg-dark text-white text-center py-3">
         &copy; {new Date().getFullYear()} Damian Portfolio

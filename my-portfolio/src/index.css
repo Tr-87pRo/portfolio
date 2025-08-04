@@ -1,4 +1,37 @@
-body {
-  margin: 0;
-  font-family: system-ui, sans-serif;
+/* Navbar default transparent style */
+.navbar-transparent {
+  background-color: transparent !important;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar style after scroll */
+.navbar-scrolled {
+  background-color: #212529 !important; /* Bootstrap dark bg */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Navbar links */
+.nav-link {
+  transition: transform 0.2s ease, color 0.2s ease;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #0dcaf0 !important; /* Bootstrap info color */
+  transform: scale(1.1);
+}
+
+/* Navbar brand hover effect */
+.navbar-brand {
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar-brand:hover {
+  color: #0dcaf0;
+}
+
+/* Fix spacing in navbar */
+.navbar-nav {
+  gap: 1.2rem;
 }
