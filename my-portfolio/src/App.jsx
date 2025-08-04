@@ -41,25 +41,27 @@ function App() {
             React Developer & Web Enthusiast
           </p>
           <motion.a
-  href="#projects"
-  className="btn btn-lg fw-semibold"
-  whileHover={{
-    scale: 1.05,
-    boxShadow: '0 0 10px #0dcaf0, 0 0 20px #0dcaf0',
-  }}
-  whileTap={{ scale: 0.95 }}
-  style={{
-    color: '#0dcaf0',
-    border: '1px solid #0dcaf0',
-    backgroundColor: 'transparent',
-    borderRadius: '8px',
-    padding: '10px 24px',
-    transition: 'all 0.3s ease',
-  }}
->
-  See My Work
-</motion.a>
-
+            href="#projects"
+            className="btn btn-lg fw-semibold"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 10px #0dcaf0, 0 0 20px #0dcaf0',
+              color: '#0dcaf0', // Keep font color same on hover
+            }}
+            whileTap={{ scale: 0.95 }}
+            style={{
+              color: '#0dcaf0',
+              border: '1px solid #0dcaf0',
+              backgroundColor: 'transparent',
+              borderRadius: '8px',
+              padding: '10px 24px',
+              transition: 'all 0.3s ease',
+              textDecoration: 'none',
+              display: 'inline-block',
+            }}
+          >
+            See My Work
+          </motion.a>
         </motion.div>
       </header>
 
@@ -81,10 +83,13 @@ function App() {
                 className="col-md-4"
                 whileHover={{
                   y: -10,
-                  boxShadow: '0 10px 20px rgba(0,0,0,0.15)',
+                  boxShadow: '0 8px 15px rgba(13,110,253,0.3)',
+                  transition: { duration: 0.3, ease: 'easeOut' },
                 }}
+                style={{ borderRadius: '12px', overflow: 'hidden', cursor: 'pointer' }}
+                transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
-                <div className="card h-100 shadow-sm border-0 rounded">
+                <div className="card h-100 shadow-sm border-0 rounded" style={{ borderRadius: '12px' }}>
                   <img
                     src={`https://picsum.photos/seed/project${project}/400/200`}
                     className="card-img-top rounded-top"
