@@ -112,11 +112,21 @@ function App() {
             className="display-4 fw-bold mb-3"
             style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
           >
-            Hello, I'm <span className="text-info glow">Damian</span>
+            Hello, I'm{' '}
+            <span
+              className="text-info glow"
+              tabIndex={0}
+              aria-label="Damian"
+              role="text"
+            >
+              Damian
+            </span>
           </h1>
-          <p className="lead" style={{ maxWidth: '600px', margin: '0 auto' }}>
-            I am a frontend developer from Poland — a country known for its rich history, vibrant culture, and beautiful landscapes. Growing up surrounded by diverse architecture and picturesque cities, I developed a keen eye for design and detail. My passion is to bring these elements to the web by crafting engaging and visually appealing user experiences.
+          <p className="lead mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
+            A passionate web developer from Poland, constantly learning and creating beautiful web experiences.
           </p>
+
+          {/* Transparent glow button with border */}
           <button
             className="btn btn-outline-info mt-3 glow-button"
             style={{
@@ -124,9 +134,13 @@ function App() {
               borderWidth: '2px',
               color: '#0dcaf0',
               cursor: 'pointer',
+              transition: 'box-shadow 0.3s ease',
+            }}
+            onClick={() => {
+              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            Contact me via
+            About Me
           </button>
         </motion.div>
       </header>
@@ -247,7 +261,7 @@ function App() {
         className="py-4 text-center text-white"
         style={{
           background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                       url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
+                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
           minHeight: '30vh',
         }}
         initial="hidden"
@@ -256,7 +270,7 @@ function App() {
         variants={sectionVariants}
       >
         <div className="container">
-          <h2 className="fw-bold mb-3">Contact</h2>
+          <h2 className="fw-bold mb-3">Contact Me</h2>
           <p className="lead">
             Contact me via email at{' '}
             <a
@@ -283,18 +297,38 @@ function App() {
       <style jsx>{`
         .glow {
           transition: text-shadow 0.3s ease, box-shadow 0.3s ease;
+          outline: none;
+          border: none;
         }
-        .glow:hover {
+        .glow:hover,
+        .glow:focus {
+          outline: none;
+          border: none;
           text-shadow: 0 0 10px #0dcaf0, 0 0 20px #0dcaf0, 0 0 30px #0dcaf0;
           box-shadow: 0 0 10px #0dcaf0, 0 0 20px #0dcaf0, 0 0 30px #0dcaf0;
+          text-decoration: none;
         }
         .glow-button {
           transition: box-shadow 0.3s ease;
+          outline: none;
+          border: 2px solid #0dcaf0;
         }
-        .glow-button:hover {
+        .glow-button:hover,
+        .glow-button:focus {
+          outline: none;
           box-shadow: 0 0 12px 3px #0dcaf0;
           border-color: #0dcaf0;
           color: #0dcaf0;
+        }
+        a {
+          outline: none;
+          border: none;
+        }
+        a:hover,
+        a:focus {
+          outline: none;
+          border: none;
+          text-decoration: none;
         }
       `}</style>
     </>
