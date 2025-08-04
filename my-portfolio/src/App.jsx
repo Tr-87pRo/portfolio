@@ -7,6 +7,27 @@ const sectionVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
 };
 
+const projects = [
+  {
+    id: 1,
+    title: 'Portfolio Website',
+    description: 'A personal portfolio built with React and Bootstrap.',
+    imageUrl: 'https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    id: 2,
+    title: 'E-commerce Store',
+    description: 'Online store built with React, Redux, and Stripe.',
+    imageUrl: 'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80',
+  },
+  {
+    id: 3,
+    title: 'Blog Platform',
+    description: 'A full-stack blog platform with user authentication.',
+    imageUrl: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80',
+  },
+];
+
 function App() {
   return (
     <>
@@ -74,27 +95,38 @@ function App() {
       >
         <div className="container">
           <h2 className="mb-5 text-center fw-bold">Projects</h2>
-          <div className="row">
-            {[1, 2, 3].map((project, index) => (
+
+          {/* Custom flex container with gap */}
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: '1rem',
+              justifyContent: 'center',
+            }}
+          >
+            {projects.map(({ id, title, description, imageUrl }) => (
               <motion.div
-                key={project}
-                className="col-md-4"
+                key={id}
                 whileHover={{
                   y: -10,
                   boxShadow: '0 10px 25px rgba(13, 202, 240, 0.3)',
                 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20 }}
                 style={{
+                  flex: '1 1 calc(33.33% - 1rem)', // 3 per row minus gap
                   borderRadius: '12px',
                   overflow: 'hidden',
                   backgroundColor: 'white',
-                  marginBottom: '30px', // ✅ This adds the desired vertical spacing
+                  minWidth: '280px', // prevent too narrow on small screens
+                  maxWidth: '400px',
+                  boxSizing: 'border-box',
                 }}
               >
                 <div className="h-100">
                   <img
-                    src={`https://picsum.photos/seed/project${project}/400/200`}
-                    alt={`Project ${project}`}
+                    src={imageUrl}
+                    alt={title}
                     style={{
                       width: '100%',
                       height: '200px',
@@ -104,10 +136,8 @@ function App() {
                     }}
                   />
                   <div className="p-3">
-                    <h5 className="fw-bold">Project {project}</h5>
-                    <p style={{ fontSize: '0.95rem' }}>
-                      A cool project showcasing your skills and creativity.
-                    </p>
+                    <h5 className="fw-bold">{title}</h5>
+                    <p style={{ fontSize: '0.95rem' }}>{description}</p>
                     <a href="#" className="btn btn-outline-info btn-sm">
                       View Details
                     </a>
@@ -151,10 +181,7 @@ function App() {
           <h2 className="fw-bold mb-3">Contact</h2>
           <p className="lead">
             Feel free to reach out via email at{' '}
-            <a
-              href="mailto:damianopeplinki+contact@gmail.com"
-              className="text-info"
-            >
+            <a href="mailto:damianopeplinki+contact@gmail.com" className="text-info">
               damianopeplinki+contact@gmail.com
             </a>
           </p>

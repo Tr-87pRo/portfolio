@@ -40,3 +40,68 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Project Cards Layout Improvements */
+.projects-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(13, 202, 240, 0.3);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-card-content {
+  padding: 1.5rem;
+}
+
+.project-card h5 {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.project-card p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projects-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* Additional spacing utilities */
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.g-4 {
+  gap: 1.5rem !important;
+}
+
+.gap-3 {
+  gap: 1rem !important;
+}
