@@ -41,19 +41,32 @@ function App() {
             React Developer & Web Enthusiast
           </p>
           <motion.a
-            href="#projects"
-            className="btn btn-info btn-lg shadow-lg"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 8px rgb(13,110,253)' }}
-            whileTap={{ scale: 0.95 }}
-          >
-            See My Work
-          </motion.a>
+  href="#projects"
+  className="btn btn-lg fw-semibold"
+  whileHover={{
+    scale: 1.05,
+    boxShadow: '0 0 10px #0dcaf0, 0 0 20px #0dcaf0',
+  }}
+  whileTap={{ scale: 0.95 }}
+  style={{
+    color: '#0dcaf0',
+    border: '1px solid #0dcaf0',
+    backgroundColor: 'transparent',
+    borderRadius: '8px',
+    padding: '10px 24px',
+    transition: 'all 0.3s ease',
+  }}
+>
+  See My Work
+</motion.a>
+
         </motion.div>
       </header>
 
       <motion.section
         id="projects"
         className="py-5 bg-light"
+        style={{ scrollMarginTop: '100px' }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
@@ -66,7 +79,10 @@ function App() {
               <motion.div
                 key={project}
                 className="col-md-4"
-                whileHover={{ y: -10, boxShadow: '0 10px 20px rgba(0,0,0,0.15)' }}
+                whileHover={{
+                  y: -10,
+                  boxShadow: '0 10px 20px rgba(0,0,0,0.15)',
+                }}
               >
                 <div className="card h-100 shadow-sm border-0 rounded">
                   <img

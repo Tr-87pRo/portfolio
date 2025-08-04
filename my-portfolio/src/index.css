@@ -1,37 +1,54 @@
-/* Navbar default transparent style */
-.navbar-transparent {
-  background-color: transparent !important;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Navbar style after scroll */
-.navbar-scrolled {
-  background-color: #212529 !important; /* Bootstrap dark bg */
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Navbar links */
-.nav-link {
-  transition: transform 0.2s ease, color 0.2s ease;
+.about-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 1.5rem 2rem;
+  background: rgba(13, 202, 240, 0.1);
+  border-radius: 12px;
   cursor: pointer;
+  transition: background-color 0.3s ease, height 0.3s ease;
+  overflow: hidden;
+  height: 100px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 0.1);
+  user-select: none;
 }
 
-.nav-link:hover {
-  color: #0dcaf0 !important; /* Bootstrap info color */
-  transform: scale(1.1);
+.about-container.expanded {
+  height: auto;
+  background: rgba(13, 202, 240, 0.2);
 }
 
-/* Navbar brand hover effect */
-.navbar-brand {
-  transition: color 0.3s ease;
-  cursor: pointer;
-}
-
-.navbar-brand:hover {
+.about-container h2 {
+  margin: 0 0 1rem 0;
   color: #0dcaf0;
+  font-weight: 700;
+  user-select: text;
 }
 
-/* Fix spacing in navbar */
-.navbar-nav {
-  gap: 1.2rem;
+.teaser {
+  font-style: italic;
+  color: #0dcaf0;
+  margin: 0;
+}
+
+.expanded-content p {
+  margin-top: 1rem;
+  color: #212529;
+  line-height: 1.5;
+  user-select: text;
+}
+
+/* Optional: add subtle fade-in for expanded content */
+.expanded-content {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
