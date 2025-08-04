@@ -114,8 +114,9 @@ function App() {
           >
             Hello, I'm <span className="text-info glow">Damian</span>
           </h1>
-
-          {/* Transparent glow button with border */}
+          <p className="lead" style={{ maxWidth: '600px', margin: '0 auto' }}>
+            I am a frontend developer from Poland — a country known for its rich history, vibrant culture, and beautiful landscapes. Growing up surrounded by diverse architecture and picturesque cities, I developed a keen eye for design and detail. My passion is to bring these elements to the web by crafting engaging and visually appealing user experiences.
+          </p>
           <button
             className="btn btn-outline-info mt-3 glow-button"
             style={{
@@ -123,10 +124,9 @@ function App() {
               borderWidth: '2px',
               color: '#0dcaf0',
               cursor: 'pointer',
-              transition: 'box-shadow 0.3s ease',
             }}
           >
-            Contact Me
+            Contact me via
           </button>
         </motion.div>
       </header>
@@ -247,7 +247,7 @@ function App() {
         className="py-4 text-center text-white"
         style={{
           background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
+                       url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
           minHeight: '30vh',
         }}
         initial="hidden"
@@ -258,7 +258,7 @@ function App() {
         <div className="container">
           <h2 className="fw-bold mb-3">Contact</h2>
           <p className="lead">
-            Feel free to reach out via email at{' '}
+            Contact me via email at{' '}
             <a
               href="mailto:damianopeplinki+contact@gmail.com"
               className="text-info glow"
