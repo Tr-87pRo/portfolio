@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 
-const timelineItems = [
-  {
-    year: '2019',
-    title: 'First Steps in Web Dev',
-    short: 'I started exploring HTML, CSS, and JavaScript...',
-    full: 'I dove into frontend development through online courses and YouTube tutorials, quickly building small landing pages and interactive widgets.',
-  },
+const aboutTimeline = [
   {
     year: '2021',
-    title: 'React Changed Everything',
-    short: 'Discovered React and started building apps...',
-    full: 'React’s component model clicked instantly. I started building reusable UI components, managing state with hooks, and exploring the ecosystem with React Router and Context.',
+    title: 'First Steps in Web Dev',
+    full:
+      'I started exploring HTML, CSS, and JavaScript after joining SCI. I followed online tutorials and built some simple websites to get the hang of it.',
   },
   {
     year: '2022',
-    title: 'Freelance & Real Projects',
-    short: 'Built full apps for real people...',
-    full: 'I worked with clients to build e-commerce sites, portfolios, and internal dashboards. Every project pushed me to write cleaner, scalable code.',
+    title: 'First Internship',
+    full:
+      'I started working with Laravel and React, which opened up a whole new world. React’s component system made sense to me, and I really enjoyed building with it.',
   },
   {
-    year: '2023–Now',
-    title: 'Growing as a Developer',
-    short: 'Learning Vite, Framer Motion, API integration...',
-    full: 'I’m constantly learning — from animations with Framer Motion, to API development and optimization with modern tools. I believe in staying curious.',
+    year: '2023–24',
+    title: 'School Projects',
+    full:
+      'During this time, I built several school projects and helped out with small freelance gigs. I made websites like online stores, portfolios, and simple dashboards. Every project helped me learn how to organize my code better, try new tools, and just get more comfortable building real stuff.',
+  },
+  {
+    year: '2025–Now',
+    title: 'Hobby became a passion',
+    full:
+      'I went on Erasmus in Valencia and had more time to dive deep into web dev. I started treating it more seriously and spent a lot of time learning and building for fun.',
   },
 ];
+
 
 const AboutMe = () => {
   const [expandedIndex, setExpandedIndex] = useState(null);
@@ -51,7 +52,7 @@ const AboutMe = () => {
         <h2 className="fw-bold mb-5 text-center">About Me</h2>
 
         <div className="position-relative ps-4 d-flex flex-column gap-5">
-          {/* Vertical line */}
+          {/* Vertical Line */}
           <div
             style={{
               position: 'absolute',
@@ -85,15 +86,19 @@ const AboutMe = () => {
                 }}
               />
 
-              {/* Content Block */}
+              {/* Content */}
               <div className="ms-3">
-                <h5 className="fw-bold mb-1 text-info">{item.year} — {item.title}</h5>
+                <h5 className="fw-bold mb-1 text-info">
+                  {item.year} — {item.title}
+                </h5>
                 <p className="mb-1">{item.short}</p>
 
-                {/* Toggleable Detail */}
                 <motion.div
                   initial={false}
-                  animate={{ height: expandedIndex === idx ? 'auto' : 0, opacity: expandedIndex === idx ? 1 : 0 }}
+                  animate={{
+                    height: expandedIndex === idx ? 'auto' : 0,
+                    opacity: expandedIndex === idx ? 1 : 0,
+                  }}
                   transition={{ duration: 0.4 }}
                   style={{
                     overflow: 'hidden',
@@ -104,7 +109,6 @@ const AboutMe = () => {
                   <p className="mb-0">{item.full}</p>
                 </motion.div>
 
-                {/* Toggle Button */}
                 <button
                   onClick={() => handleToggle(idx)}
                   className="btn btn-sm btn-outline-info mt-2"

@@ -12,7 +12,13 @@ import {
   FaLaravel,
   FaFigma,
 } from 'react-icons/fa';
-import { SiTailwindcss, SiFramer, SiTypescript, SiPwa } from 'react-icons/si';
+import {
+  SiTailwindcss,
+  SiFramer,
+  SiTypescript,
+  SiPwa,
+  SiMysql,
+} from 'react-icons/si';
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -84,6 +90,7 @@ const skills = [
   { name: 'PWA', icon: <SiPwa size={28} color="#5A0FC8" /> },
   { name: 'TypeScript', icon: <SiTypescript size={28} color="#007ACC" /> },
   { name: 'Figma', icon: <FaFigma size={28} color="#F24E1E" /> },
+  { name: 'MySQL', icon: <SiMysql size={28} color="#00758F" /> },
 ];
 
 function App() {
@@ -123,10 +130,8 @@ function App() {
             </span>
           </h1>
           <p className="lead mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
-            A passionate web developer from Poland, constantly learning and creating beautiful web experiences.
+            A passionate web developer from Poland, constantly learning and creating beautiful web projects.
           </p>
-
-          {/* Transparent glow button with border */}
           <button
             className="btn btn-outline-info mt-3 glow-button"
             style={{
@@ -257,36 +262,37 @@ function App() {
 
       {/* Contact Section */}
       <motion.section
-        id="contact"
-        className="py-4 text-center text-white"
+  id="contact"
+  className="text-white d-flex justify-content-center align-items-center"
+  style={{
+    height: '30vh',
+    background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
+  }}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.3 }}
+  variants={sectionVariants}
+>
+  <div className="container text-center">
+    <h2 className="fw-bold mb-3">Contact Me</h2>
+    <p className="lead">
+      Contact me via email at{' '}
+      <a
+        href="mailto:damianopeplinki+contact@gmail.com"
+        className="text-info glow"
         style={{
-          background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
-          minHeight: '30vh',
+          borderBottom: '1px solid #0dcaf0',
+          cursor: 'pointer',
+          textDecoration: 'none',
         }}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={sectionVariants}
       >
-        <div className="container">
-          <h2 className="fw-bold mb-3">Contact Me</h2>
-          <p className="lead">
-            Contact me via email at{' '}
-            <a
-              href="mailto:damianopeplinki+contact@gmail.com"
-              className="text-info glow"
-              style={{
-                borderBottom: '1px solid #0dcaf0',
-                cursor: 'pointer',
-                textDecoration: 'none',
-              }}
-            >
-              damianopeplinki+contact@gmail.com
-            </a>
-          </p>
-        </div>
-      </motion.section>
+        damianopeplinki+contact@gmail.com
+      </a>
+    </p>
+  </div>
+</motion.section>
+
 
       {/* Footer */}
       <footer className="bg-dark text-white text-center py-3">
@@ -296,23 +302,24 @@ function App() {
       {/* Custom Styles */}
       <style jsx>{`
         .glow {
-          transition: text-shadow 0.3s ease, box-shadow 0.3s ease;
+          transition: text-shadow 0.3s ease;
           outline: none;
           border: none;
+          display: inline;
         }
+
         .glow:hover,
         .glow:focus {
-          outline: none;
-          border: none;
           text-shadow: 0 0 10px #0dcaf0, 0 0 20px #0dcaf0, 0 0 30px #0dcaf0;
-          box-shadow: 0 0 10px #0dcaf0, 0 0 20px #0dcaf0, 0 0 30px #0dcaf0;
           text-decoration: none;
         }
+
         .glow-button {
           transition: box-shadow 0.3s ease;
           outline: none;
           border: 2px solid #0dcaf0;
         }
+
         .glow-button:hover,
         .glow-button:focus {
           outline: none;
@@ -320,10 +327,12 @@ function App() {
           border-color: #0dcaf0;
           color: #0dcaf0;
         }
+
         a {
           outline: none;
           border: none;
         }
+
         a:hover,
         a:focus {
           outline: none;
