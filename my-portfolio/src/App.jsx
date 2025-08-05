@@ -34,26 +34,27 @@ const sectionVariants = {
 const projects = [
   {
     id: 1,
-    title: 'Portfolio Website',
-    description: 'A personal portfolio built with React and Bootstrap.',
-    imageUrl: '/images/portfolio.jpg',
-    link: 'https://your-portfolio-url.com',
+    title: 'Weather App',
+    description: 'A weather forecasting app using real-time API data. Displays current conditions and weekly forecasts.',
+    imageUrl: '/weather.png',
+    link: 'https://github.com/Tr-87pRo/HELP_ME',
   },
   {
     id: 2,
-    title: 'E-commerce Store',
-    description: 'Online store built with React, Redux, and Stripe.',
-    imageUrl: '/images/ecommerce.jpg',
-    link: 'https://your-ecommerce-url.com',
+    title: 'Coffee Webpage',
+    description: 'A modern coffee shop landing page with a stylish UI and shopping cart. Built with React and Redux.',
+    imageUrl: '/cafe3.jpg',
+    link: 'https://github.com/Akrzemka/projekt-kafejka2',
   },
   {
     id: 3,
-    title: 'Blog Platform',
-    description: 'A full-stack blog platform with user authentication.',
-    imageUrl: '/images/blog.jpg',
-    link: 'https://your-blog-url.com',
+    title: 'Polls App',
+    description: 'An interactive polls and voting platform with login system, results tracking, and live updates.',
+    imageUrl: '/icon_144.png',
+    link: 'https://vote.maventplan.pl/',
   },
 ];
+
 
 
 const aboutTimeline = [
@@ -185,29 +186,36 @@ function App() {
         <div className="container">
           <h2 className="mb-5 text-center fw-bold">Projects</h2>
           <div className="row justify-content-center">
-            {projects.map(({ id, title, description, imageUrl }) => (
-              <div key={id} className="col-md-4 mb-4">
-                <motion.div
-                  whileHover={{
-                    y: -10,
-                    boxShadow: '0 10px 25px rgba(13, 202, 240, 0.3)',
-                  }}
-                  transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                  className="bg-white rounded shadow-sm h-100"
-                >
-                  <img
-                    src={imageUrl}
-                    alt={title}
-                    className="img-fluid rounded-top"
-                    style={{ height: '200px', objectFit: 'cover' }}
-                  />
-                  <div className="p-3">
-                    <h5>{title}</h5>
-                    <p>{description}</p>
-                  </div>
-                </motion.div>
-              </div>
-            ))}
+           {projects.map(({ id, title, description, imageUrl, link }) => (
+  <div key={id} className="col-md-4 mb-4">
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ textDecoration: 'none', color: 'inherit' }}
+    >
+      <motion.div
+        whileHover={{
+          y: -10,
+          boxShadow: '0 10px 25px rgba(13, 202, 240, 0.3)',
+        }}
+        transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+        className="bg-white rounded shadow-sm h-100"
+      >
+        <img
+          src={imageUrl}
+          alt={title}
+          className="img-fluid rounded-top"
+          style={{ height: '200px', objectFit: 'cover' }}
+        />
+        <div className="p-3">
+          <h5>{title}</h5>
+          <p>{description}</p>
+        </div>
+      </motion.div>
+    </a>
+  </div>
+))}
           </div>
         </div>
       </motion.section>
