@@ -36,24 +36,25 @@ const projects = [
     id: 1,
     title: 'Portfolio Website',
     description: 'A personal portfolio built with React and Bootstrap.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=400&q=80',
+    imageUrl: '/images/portfolio.jpg',
+    link: 'https://your-portfolio-url.com',
   },
   {
     id: 2,
     title: 'E-commerce Store',
     description: 'Online store built with React, Redux, and Stripe.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80',
+    imageUrl: '/images/ecommerce.jpg',
+    link: 'https://your-ecommerce-url.com',
   },
   {
     id: 3,
     title: 'Blog Platform',
     description: 'A full-stack blog platform with user authentication.',
-    imageUrl:
-      'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=400&q=80',
+    imageUrl: '/images/blog.jpg',
+    link: 'https://your-blog-url.com',
   },
 ];
+
 
 const aboutTimeline = [
   {
