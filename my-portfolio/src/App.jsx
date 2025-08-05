@@ -51,28 +51,28 @@ const projects = [
 
 const aboutTimeline = [
   {
-    year: '2019',
+    year: '2021',
     title: 'First Steps in Web Dev',
     full:
-      'Dove into frontend development through online tutorials. Built small projects to learn the basics and gained confidence with layout and styling.',
-  },
-  {
-    year: '2021',
-    title: 'React Changed Everything',
-    full:
-      'Learned React, hooks, component trees, and routing. Built complex UIs and learned to manage state effectively. React became my daily tool.',
+      'I started exploring HTML, CSS, and JavaScript after joining SCI. I followed online tutorials and built some simple websites to get the hang of it.',
   },
   {
     year: '2022',
-    title: 'Freelancing Experience',
+    title: 'First Internship',
     full:
-      'Worked on portfolio sites, business dashboards, and landing pages. Learned project structure, deadlines, and client collaboration.',
+      'I started working with Laravel and React, which opened up a whole new world. React’s component system made sense to me, and I really enjoyed building with it.',
   },
   {
-    year: '2023–Now',
-    title: 'Expanding My Stack',
+    year: '2023–24',
+    title: 'School Projects',
     full:
-      'I’m constantly learning — deploying with Netlify/Vercel, using animations with Framer Motion, and building full-stack apps with APIs.',
+      'During this time, I built several school projects and helped out with small freelance gigs. I made websites like online stores, portfolios, and simple dashboards. Every project helped me learn how to organize my code better, try new tools, and just get more comfortable building real stuff.',
+  },
+  {
+    year: '2025–Now',
+    title: 'Hobby became a passion',
+    full:
+      'I went on Erasmus in Valencia and had more time to dive deep into web dev. I started treating it more seriously and spent a lot of time learning and building for fun.',
   },
 ];
 
@@ -98,57 +98,74 @@ function App() {
     <>
       <Navbar />
 
-      {/* Hero Section */}
-      <header
-        id="home"
-        className="text-center text-white d-flex align-items-center justify-content-center"
-        style={{
-          minHeight: '80vh',
-          paddingTop: '56px',
-          background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
-        }}
+  <header
+  id="home"
+  className="text-center text-white d-flex align-items-center justify-content-center"
+  style={{
+    minHeight: '80vh',
+    paddingTop: '56px',
+    background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
+  }}
+>
+  <motion.div
+    className="container"
+    initial={{ opacity: 0, y: -40 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+    <h1
+      className="display-4 fw-bold mb-3"
+      style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
+    >
+      Hello, I'm{' '}
+      <span
+        className="text-info glow"
+        tabIndex={0}
+        aria-label="Damian"
+        role="text"
       >
-        <motion.div
-          className="container"
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <h1
-            className="display-4 fw-bold mb-3"
-            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
-          >
-            Hello, I'm{' '}
-            <span
-              className="text-info glow"
-              tabIndex={0}
-              aria-label="Damian"
-              role="text"
-            >
-              Damian
-            </span>
-          </h1>
-          <p className="lead mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
-            A passionate web developer from Poland, constantly learning and creating beautiful web projects.
-          </p>
-          <button
-            className="btn btn-outline-info mt-3 glow-button"
-            style={{
-              backgroundColor: 'transparent',
-              borderWidth: '2px',
-              color: '#0dcaf0',
-              cursor: 'pointer',
-              transition: 'box-shadow 0.3s ease',
-            }}
-            onClick={() => {
-              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            About Me
-          </button>
-        </motion.div>
-      </header>
+        Damian
+      </span>
+    </h1>
+
+    {/* Profile Picture Box */}
+    <div className="d-flex justify-content-center mb-4">
+      <img
+        src="Me.jpg" 
+        alt="Damian's Profile"
+        className="rounded-circle shadow"
+        style={{
+          width: '150px',
+          height: '150px',
+          objectFit: 'cover',
+          border: '4px solid #0dcaf0',
+        }}
+      />
+    </div>
+
+    <p className="lead mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
+      A passionate web developer from Poland, constantly learning and creating beautiful web projects.
+    </p>
+
+    <button
+      className="btn btn-outline-info mt-3 glow-button"
+      style={{
+        backgroundColor: 'transparent',
+        borderWidth: '2px',
+        color: '#0dcaf0',
+        cursor: 'pointer',
+        transition: 'box-shadow 0.3s ease',
+      }}
+      onClick={() => {
+        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+      }}
+    >
+      About Me
+    </button>
+  </motion.div>
+</header>
+
 
       {/* Projects Section */}
       <motion.section
