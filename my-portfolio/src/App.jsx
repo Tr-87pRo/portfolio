@@ -11,6 +11,12 @@ import {
   FaNodeJs,
   FaLaravel,
   FaFigma,
+  FaGithub,
+  FaFacebook,
+  FaInstagram,
+  FaTwitter,
+  FaDiscord,
+  FaSteam,
 } from 'react-icons/fa';
 import {
   SiTailwindcss,
@@ -98,74 +104,73 @@ function App() {
     <>
       <Navbar />
 
-  <header
-  id="home"
-  className="text-center text-white d-flex align-items-center justify-content-center"
-  style={{
-    minHeight: '80vh',
-    paddingTop: '56px',
-    background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
-  }}
->
-  <motion.div
-    className="container"
-    initial={{ opacity: 0, y: -40 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-  >
-    <h1
-      className="display-4 fw-bold mb-3"
-      style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
-    >
-      Hello, I'm{' '}
-      <span
-        className="text-info glow"
-        tabIndex={0}
-        aria-label="Damian"
-        role="text"
-      >
-        Damian
-      </span>
-    </h1>
-
-    {/* Profile Picture Box */}
-    <div className="d-flex justify-content-center mb-4">
-      <img
-        src="Me.jpg" 
-        alt="Damian's Profile"
-        className="rounded-circle shadow"
+      <header
+        id="home"
+        className="text-center text-white d-flex align-items-center justify-content-center"
         style={{
-          width: '150px',
-          height: '150px',
-          objectFit: 'cover',
-          border: '4px solid #0dcaf0',
+          minHeight: '80vh',
+          paddingTop: '56px',
+          background: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
         }}
-      />
-    </div>
+      >
+        <motion.div
+          className="container"
+          initial={{ opacity: 0, y: -40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <h1
+            className="display-4 fw-bold mb-3"
+            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
+          >
+            Hello, I'm{' '}
+            <span
+              className="text-info glow"
+              tabIndex={0}
+              aria-label="Damian"
+              role="text"
+            >
+              Damian
+            </span>
+          </h1>
 
-    <p className="lead mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
-      A passionate web developer from Poland, constantly learning and creating beautiful web projects.
-    </p>
+          {/* Profile Picture Box */}
+          <div className="d-flex justify-content-center mb-4">
+            <img
+              src="Me.jpg"
+              alt="Damian's Profile"
+              className="rounded-circle shadow"
+              style={{
+                width: '150px',
+                height: '150px',
+                objectFit: 'cover',
+                border: '4px solid #0dcaf0',
+              }}
+            />
+          </div>
 
-    <button
-      className="btn btn-outline-info mt-3 glow-button"
-      style={{
-        backgroundColor: 'transparent',
-        borderWidth: '2px',
-        color: '#0dcaf0',
-        cursor: 'pointer',
-        transition: 'box-shadow 0.3s ease',
-      }}
-      onClick={() => {
-        document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-      }}
-    >
-      About Me
-    </button>
-  </motion.div>
-</header>
+          <p className="lead mb-4" style={{ maxWidth: '600px', margin: '0 auto' }}>
+            A passionate web developer from Poland, constantly learning and creating beautiful web projects.
+          </p>
 
+          <button
+            className="btn btn-outline-info mt-3 glow-button"
+            style={{
+              backgroundColor: 'transparent',
+              borderWidth: '2px',
+              color: '#0dcaf0',
+              cursor: 'pointer',
+              transition: 'box-shadow 0.3s ease',
+            }}
+            onClick={() => {
+              document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            About Me
+          </button>
+        </motion.div>
+      </header>
 
       {/* Projects Section */}
       <motion.section
@@ -279,37 +284,94 @@ function App() {
 
       {/* Contact Section */}
       <motion.section
-  id="contact"
-  className="text-white d-flex justify-content-center align-items-center"
-  style={{
-    height: '30vh',
-    background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
-  }}
-  initial="hidden"
-  whileInView="visible"
-  viewport={{ once: true, amount: 0.3 }}
-  variants={sectionVariants}
->
-  <div className="container text-center">
-    <h2 className="fw-bold mb-3">Contact Me</h2>
-    <p className="lead">
-      Contact me via email at{' '}
-      <a
-        href="mailto:damianopeplinki+contact@gmail.com"
-        className="text-info glow"
+        id="contact"
+        className="text-white d-flex justify-content-center align-items-center"
         style={{
-          borderBottom: '1px solid #0dcaf0',
-          cursor: 'pointer',
-          textDecoration: 'none',
+          height: '30vh',
+          background: `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                       url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover`,
         }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
       >
-        damianopeplinki+contact@gmail.com
-      </a>
-    </p>
-  </div>
-</motion.section>
+        <div className="container text-center">
+          <h2 className="fw-bold mb-3">Contact Me</h2>
+          <p className="lead">
+            Contact me via email at{' '}
+            <a
+              href="mailto:damianopeplinki+contact@gmail.com"
+              className="text-info glow"
+              style={{
+                borderBottom: '1px solid #0dcaf0',
+                cursor: 'pointer',
+                textDecoration: 'none',
+              }}
+            >
+              damianopeplinki+contact@gmail.com
+            </a>
+          </p>
 
+          {/* Social Icons */}
+          <div className="d-flex justify-content-center gap-4 mt-3">
+            <a
+              href="https://github.com/Tr-87pRo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-info glow-icon"
+              aria-label="GitHub"
+            >
+              <FaGithub size={28} />
+            </a>
+            <a
+              href="https://www.facebook.com/damiana.peplinski"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-info glow-icon"
+              aria-label="Facebook"
+            >
+              <FaFacebook size={28} />
+            </a>
+            <a
+              href="https://www.instagram.com/krzemek.trepro/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-info glow-icon"
+              aria-label="Instagram"
+            >
+              <FaInstagram size={28} />
+            </a>
+            <a
+              href="https://x.com/T87pro"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-info glow-icon"
+              aria-label="Twitter"
+            >
+              <FaTwitter size={28} />
+            </a>
+            <a
+              href="https://discord.com/users/877943581690720266"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-info glow-icon"
+              aria-label="Discord"
+            >
+              <FaDiscord size={28} />
+            </a>
+            <a
+              href="https://steamcommunity.com/profiles/76561198876622280/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-info glow-icon"
+              aria-label="Steam"
+            >
+              <FaSteam size={28} />
+            </a>
+          </div>
+        </div>
+      </motion.section>
 
       {/* Footer */}
       <footer className="bg-dark text-white text-center py-3">
@@ -335,6 +397,9 @@ function App() {
           transition: box-shadow 0.3s ease;
           outline: none;
           border: 2px solid #0dcaf0;
+          background-color: transparent;
+          color: #0dcaf0;
+          cursor: pointer;
         }
 
         .glow-button:hover,
@@ -343,6 +408,23 @@ function App() {
           box-shadow: 0 0 12px 3px #0dcaf0;
           border-color: #0dcaf0;
           color: #0dcaf0;
+        }
+
+        .glow-icon {
+          transition: text-shadow 0.3s ease;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 4px;
+        }
+
+        .glow-icon:hover,
+        .glow-icon:focus {
+          text-shadow: 0 0 10px #0dcaf0, 0 0 20px #0dcaf0, 0 0 30px #0dcaf0;
+          color: #0dcaf0;
+          text-decoration: none;
+          outline: none;
         }
 
         a {
