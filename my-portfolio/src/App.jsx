@@ -1,6 +1,9 @@
 import React from 'react';
 import Navbar from './Navbar';
 import { motion } from 'framer-motion';
+import weatherImg from '/weather.png';
+import cafeImg from '/cafe3.jpg';
+import pollImg from '/icon_144.png';
 import {
   FaReact,
   FaJsSquare,
@@ -36,21 +39,21 @@ const projects = [
     id: 1,
     title: 'Weather App',
     description: 'A weather forecasting app using real-time API data. Displays current conditions and weekly forecasts.',
-    imageUrl: '/weather.png',
+    imageUrl: weatherImg,
     link: 'https://github.com/Tr-87pRo/HELP_ME',
   },
   {
     id: 2,
     title: 'Coffee Webpage',
     description: 'A modern coffee shop landing page with a stylish UI and shopping cart. Built with React and Redux.',
-    imageUrl: '/cafe3.jpg',
+    imageUrl: cafeImg,
     link: 'https://github.com/Akrzemka/projekt-kafejka2',
   },
   {
     id: 3,
     title: 'Polls App',
     description: 'An interactive polls and voting platform with login system, results tracking, and live updates.',
-    imageUrl: '/icon_144.png',
+    imageUrl: pollImg,
     link: 'https://vote.maventplan.pl/',
   },
 ];
@@ -186,36 +189,36 @@ function App() {
         <div className="container">
           <h2 className="mb-5 text-center fw-bold">Projects</h2>
           <div className="row justify-content-center">
-           {projects.map(({ id, title, description, imageUrl, link }) => (
-  <div key={id} className="col-md-4 mb-4">
-    <a
-      href={link}
-      target="_blank"
-      rel="noopener noreferrer"
-      style={{ textDecoration: 'none', color: 'inherit' }}
-    >
-      <motion.div
-        whileHover={{
-          y: -10,
-          boxShadow: '0 10px 25px rgba(13, 202, 240, 0.3)',
-        }}
-        transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-        className="bg-white rounded shadow-sm h-100"
-      >
-        <img
-          src={imageUrl}
-          alt={title}
-          className="img-fluid rounded-top"
-          style={{ height: '200px', objectFit: 'cover' }}
-        />
-        <div className="p-3">
-          <h5>{title}</h5>
-          <p>{description}</p>
-        </div>
-      </motion.div>
-    </a>
-  </div>
-))}
+            {projects.map(({ id, title, description, imageUrl, link }) => (
+              <div key={id} className="col-md-4 mb-4">
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: 'none', color: 'inherit' }}
+                >
+                  <motion.div
+                    whileHover={{
+                      y: -10,
+                      boxShadow: '0 10px 25px rgba(13, 202, 240, 0.3)',
+                    }}
+                    transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+                    className="bg-white rounded shadow-sm h-100"
+                  >
+                    <img
+                      src={imageUrl}
+                      alt={title}
+                      className="img-fluid rounded-top"
+                      style={{ height: '200px', objectFit: 'cover' }}
+                    />
+                    <div className="p-3">
+                      <h5>{title}</h5>
+                      <p>{description}</p>
+                    </div>
+                  </motion.div>
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </motion.section>
